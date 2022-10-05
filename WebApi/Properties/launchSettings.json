@@ -25,6 +25,10 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "Run Migrations": {
+      "commandName": "Project",
+      "commandLineArgs": "--RunMigrations --connectionString \"Data Source=SQLite.db\""
     }
   }
 }
