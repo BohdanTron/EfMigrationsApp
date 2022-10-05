@@ -30,4 +30,11 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
+app.MapGet("/users", (CancellationToken cancellationToken) =>
+{
+    using var scope = app.Services.CreateScope();
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    return dbContext.Users.ToListAsync(cancellationToken);
+});
+
 app.Run();
